@@ -136,6 +136,9 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        //Detox add config:
+        testBuildType System.getProperty('testBuildType', 'debug')  
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
     splits {
         abi {
@@ -163,6 +166,9 @@ android {
             }
         }
         release {
+            //Detox add config:
+            minifyEnabled true
+            proguardFile "${rootProject.projectDir}/../node_modules/detox/android/detox/proguard-rules-app.pro"
             // Caution! In production, you need to generate your own keystore file.
             // see https://reactnative.dev/docs/signed-apk-android.
             signingConfig signingConfigs.debug
@@ -189,6 +195,9 @@ android {
 }
 
 dependencies {
+    //Detox add config:
+    androidTestImplementation('com.wix:detox:+')
+    //Các cấu hình mặc định:
     implementation fileTree(dir: "libs", include: ["*.jar"])
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules

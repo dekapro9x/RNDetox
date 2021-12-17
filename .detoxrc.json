@@ -8,7 +8,7 @@
     },
     "android": {
       "type": "android.apk",
-      "binaryPath": "SPECIFY_PATH_TO_YOUR_APP_BINARY"
+      "binaryPath": "android/app/src/androidTest/java/com/rn_064detox/DetoxTest.java"
     }
   },
   "devices": {
