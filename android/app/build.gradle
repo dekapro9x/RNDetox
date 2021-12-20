@@ -196,7 +196,8 @@ android {
 
 dependencies {
     //Detox add config:
-    androidTestImplementation('com.wix:detox:+')
+    androidTestImplementation('com.wix:detox:+') { transitive = true }
+    androidTestImplementation 'junit:junit:4.12'
     //Các cấu hình mặc định:
     implementation fileTree(dir: "libs", include: ["*.jar"])
     //noinspection GradleDynamicVersion

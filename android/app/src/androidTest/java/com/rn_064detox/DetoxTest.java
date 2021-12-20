@@ -1,36 +1,24 @@
-// Replace "com.example" here and below with your app's package name from the top of MainActivity.java
-package com.rn_064detox;
+package com.rn_064detox; /* change to app package name */
 
-import com.wix.detox.Detox;
-import com.wix.detox.config.DetoxConfig;
+   import com.wix.detox.Detox;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+   import org.junit.Rule;
+   import org.junit.Test;
+   import org.junit.runner.RunWith;
 
-import androidx.test.ext.junit.runners.AndroidJUnit4;
-import androidx.test.filters.LargeTest;
-import androidx.test.rule.ActivityTestRule;
+   import androidx.test.ext.junit.runners.AndroidJUnit4;
+   import androidx.test.filters.LargeTest;
+   import androidx.test.rule.ActivityTestRule;
 
-@RunWith(AndroidJUnit4.class)
-@LargeTest
-public class DetoxTest {
-    // Replace 'MainActivity' with the value of android:name entry in
-    // <activity> in AndroidManifest.xml
-    @Rule
-    public ActivityTestRule<MainActivity> mActivityRule = new ActivityTestRule<>(MainActivity.class, false, false);
+   @RunWith(AndroidJUnit4.class)
+   @LargeTest
+   public class DetoxTest {
 
-    @Test
-    public void runDetoxTests() {
-        // This is optional - in case you've decided to integrate TestButler
-        // See https://github.com/wix/Detox/blob/master/docs/Introduction.Android.md#8-test-butler-support-optional
-        TestButlerProbe.assertReadyIfInstalled();
+       @Rule
+       public ActivityTestRule<MainActivity> mActivityRule = new ActivityTestRule<>(MainActivity.class, false, false);
 
-        DetoxConfig detoxConfig = new DetoxConfig();
-        detoxConfig.idlePolicyConfig.masterTimeoutSec = 90;
-        detoxConfig.idlePolicyConfig.idleResourceTimeoutSec = 60;
-        detoxConfig.rnContextLoadTimeoutSec = (com.example.BuildConfig.DEBUG ? 180 : 60);
-
-        Detox.runTests(mActivityRule, detoxConfig);
-    }
-}
+       @Test
+       public void runDetoxTests() {
+           Detox.runTests(mActivityRule);
+       }
+   }
